@@ -54,3 +54,42 @@ test('test class for Daemon', () => {
  attack: 10, defence: 40, level: 1, life: 100,
 });
 });
+
+test('test class for levelUp function for Bowerman', () => {
+	const bowerman = new Bowerman();
+	bowerman.life = 50;
+	bowerman.levelUp();
+	expect(bowerman).toEqual({
+		attack: 30, defence: 30, level: 2, life: 100,
+});
+});
+
+test('test class for levelUp function for Swordsman', () => {
+	const swordsman = new Swordsman();
+	swordsman.life = 20;
+	swordsman.levelUp();
+	expect(swordsman).toEqual({
+ attack: 48, defence: 12, level: 2, life: 100,
+});
+});
+
+test('test class for levelUp function for Magician', () => {
+	const magician = new Magician();
+	magician.levelUp();
+	expect(magician).toEqual({
+ attack: 12, defence: 48, level: 2, life: 100,
+});
+});
+
+test('test class for levelUp function for dead Magician', () => {
+	const magician = new Magician();
+	magician.life = 0;
+	magician.levelUp(); //здесь мы получили сообщение в консоль
+	//и что мы теперь должны сравнивать? не понимаю, что надо записать в ожидаемое
+	// 	expect(???).toBe({
+	// 		'Уровень жизни равен 0. Нельзя повысить левел умершего'
+	// });
+expect(magician).toEqual({
+	attack: 10, defence: 40, level: 1, life: 0,
+  });
+});
