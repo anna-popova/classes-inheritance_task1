@@ -1,19 +1,24 @@
 export default class Character {
-	constructor(attack, defence) {
+	constructor() {
 		this.level = 1;
-		this.life = 100;
-		this.attack = attack;
-		this.defence = defence;
+		this.health = 100;
+		this.attack = undefined;
+		this.defence = undefined;
 	}
 
 	levelUp() {
-		if (this.life !== 0) {
+		try {
 			this.level += 1;
 			this.attack = (this.attack * 0.2) + this.attack;
 			this.defence = (this.defence * 0.2) + this.defence;
-			this.life = 100;
-		} else {
-			console.log('Уровень жизни равен 0. Нельзя повысить левел умершего');
+			this.health = 100;
+
+			if (this.health === 0) {
+				throw new Error("Уровень жизни равен 0. Нельзя повысить левел умершего");
+			}
+		} catch(e) {
+			//?не понимаю, что мне надо на стр. 21 писать
+			console.log(e.message);
 		}
 	}
 }
