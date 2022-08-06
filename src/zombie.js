@@ -1,7 +1,11 @@
 import Character from './character';
 
 export default class Zombie extends Character {
-	attack = 40;
+	constructor(level, health) {
+		super(level, health);
 
-	defence = 10;
+		this.attack = 40;
+
+		this.defence = 10;
+	}
 }

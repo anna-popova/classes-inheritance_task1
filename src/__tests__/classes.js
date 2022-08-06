@@ -82,12 +82,10 @@ test('test class for levelUp function for Magician', () => {
 });
 
 test('test class for levelUp function for dead Magician', () => {
-	// const magician = new Magician();
-	// magician.health = 0;
-	// magician.levelUp(); 
-	// expect(magician).toEqual({
-	// 	attack: 10, defence: 40, level: 1, health: 0,
-	// });
+	const magician = new Magician();
+	magician.health = 0;
 
-	//? не понимаю, как на ошибку тесты написать
+	expect(() => {
+		magician.levelUp();
+	}).toThrow();
 });
